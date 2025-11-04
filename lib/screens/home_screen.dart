@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
 import 'package:parkshare/screens/parking_spot_detail_screen.dart';
+import 'package:parkshare/screens/my_bookings_screen.dart';
+import 'package:parkshare/screens/profile_screen.dart';
+import 'package:parkshare/screens/add_parking_spot_screen.dart';
+import 'package:parkshare/screens/search_filters_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,31 +53,30 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   void _onNavItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    // TODO: Navigate to different pages based on index
+    // Navigate to different pages based on index
     switch (index) {
       case 0:
         // Already on Home
         break;
       case 1:
         // Navigate to Bookings
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Bookings - Coming soon!')),
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MyBookingsScreen()),
         );
         break;
       case 2:
         // Navigate to Add Spot
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Add Parking Spot - Coming soon!')),
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AddParkingSpotScreen()),
         );
         break;
       case 3:
         // Navigate to Profile
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Profile - Coming soon!')),
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
         );
         break;
     }
@@ -148,9 +151,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           TextButton(
                             onPressed: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text('Filters - Coming soon!')),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SearchFiltersScreen(),
+                                ),
                               );
                             },
                             child: Row(
@@ -196,8 +201,11 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: _buildBottomNavigationBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Add New Spot - Coming soon!')),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddParkingSpotScreen(),
+            ),
           );
         },
         backgroundColor: AppTheme.primaryBlue,
@@ -341,9 +349,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 border: InputBorder.none,
                 isDense: true,
               ),
+              readOnly: true,
               onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Search - Coming soon!')),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchFiltersScreen(),
+                  ),
                 );
               },
             ),
