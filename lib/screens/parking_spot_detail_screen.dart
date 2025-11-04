@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
+import 'package:parkshare/screens/booking_screen.dart';
 
 class ParkingSpotDetailScreen extends StatefulWidget {
   final Map<String, dynamic> spot;
@@ -78,10 +79,10 @@ class _ParkingSpotDetailScreenState extends State<ParkingSpotDetailScreen> {
   }
 
   void _bookNow() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Booking page - Coming soon!'),
-        backgroundColor: AppTheme.accentBlue,
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BookingScreen(spot: widget.spot),
       ),
     );
   }
