@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
 import 'package:parkshare/screens/signup_screen.dart';
+import 'package:parkshare/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -47,10 +48,20 @@ class _LoginScreenState extends State<LoginScreen> {
           const SnackBar(
             content: Text('Login successful!'),
             backgroundColor: AppTheme.successColor,
+            duration: Duration(seconds: 1),
           ),
         );
 
-        // TODO: Navigate to Home screen after successful login
+        // Navigate to Home screen
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeScreen(),
+            ),
+          );
+        }
       }
     }
   }
