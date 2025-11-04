@@ -1,0 +1,58 @@
+name: parkshare
+description: A parking spot rental mobile application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Icons
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.1.0
+  font_awesome_flutter: ^10.6.0
+
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+
+  # Authentication
+  google_sign_in: ^6.1.6
+  sign_in_with_apple: ^5.0.0
+  flutter_facebook_auth: ^6.0.3
+
+  # Google Maps
+  google_maps_flutter: ^2.5.0
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
+
+  # State Management
+  provider: ^6.1.1
+
+  # Payments
+  flutter_stripe: ^10.1.1
+
+  # Image handling
+  image_picker: ^1.0.4
+  cached_network_image: ^3.3.0
+
+  # Utilities
+  intl: ^0.18.1
+  uuid: ^4.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
