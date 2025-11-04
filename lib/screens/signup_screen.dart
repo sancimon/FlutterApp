@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
+import 'package:parkshare/screens/home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -117,10 +118,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SnackBar(
             content: Text('Account created successfully!'),
             backgroundColor: AppTheme.successColor,
+            duration: Duration(seconds: 1),
           ),
         );
 
-        // TODO: Navigate to Home screen or Email Verification screen
+        // Navigate to Home screen
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeScreen(),
+            ),
+          );
+        }
       }
     }
   }
