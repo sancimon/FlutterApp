@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
 import 'package:intl/intl.dart';
+import 'package:parkshare/screens/payment_screen.dart';
 
 class BookingScreen extends StatefulWidget {
   final Map<String, dynamic> spot;
@@ -100,12 +101,16 @@ class _BookingScreenState extends State<BookingScreen> {
       return;
     }
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Proceeding to payment: \$${_totalPrice.toStringAsFixed(2)} - Coming soon!',
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PaymentScreen(
+          spot: widget.spot,
+          date: _selectedDate,
+          startTime: _startTime,
+          endTime: _endTime,
+          totalPrice: _totalPrice,
         ),
-        backgroundColor: AppTheme.successColor,
       ),
     );
   }
