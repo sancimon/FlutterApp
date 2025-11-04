@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
+import 'package:parkshare/screens/parking_spot_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -370,9 +371,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: InkWell(
         onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                content: Text('View details: ${spot['name']} - Coming soon!')),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ParkingSpotDetailScreen(spot: spot),
+            ),
           );
         },
         borderRadius: BorderRadius.circular(12),
