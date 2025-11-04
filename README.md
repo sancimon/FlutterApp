@@ -20,6 +20,7 @@ A Flutter mobile application for finding and reserving parking spots.
 ✅ **Page 3: Sign Up Screen** - Registration with password strength indicator
 ✅ **Page 4: Home Screen with Map** - Google Maps overview with parking spots
 ✅ **Page 5: Parking Spot Detail** - Full details with photos, amenities, reviews
+✅ **Page 6: Booking/Reservation** - Date/time picker with price calculator
 
 ## 🚀 How to Run on Android
 
@@ -76,7 +77,8 @@ FlutterApp/
 │   │   ├── login_screen.dart                # Login page
 │   │   ├── signup_screen.dart               # Sign up page
 │   │   ├── home_screen.dart                 # Home with map
-│   │   └── parking_spot_detail_screen.dart  # Spot details
+│   │   ├── parking_spot_detail_screen.dart  # Spot details
+│   │   └── booking_screen.dart              # Booking/reservation
 │   └── utils/
 │       └── app_theme.dart           # Color theme & styles
 ├── android/                         # Android platform (generated)
