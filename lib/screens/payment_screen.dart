@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
+import 'package:parkshare/screens/booking_confirmation_screen.dart';
 
 class PaymentScreen extends StatefulWidget {
   final Map<String, dynamic> spot;
@@ -75,29 +76,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   void _processPayment() {
-    String paymentMethod = '';
-    switch (_selectedPaymentMethod) {
-      case 0:
-        paymentMethod = 'Saved Card (****${_savedCards[0]['last4']})';
-        break;
-      case 1:
-        paymentMethod = 'New Card';
-        break;
-      case 2:
-        paymentMethod = 'Apple Pay';
-        break;
-      case 3:
-        paymentMethod = 'Google Pay';
-        break;
-    }
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Processing \$${_finalPrice.toStringAsFixed(2)} via $paymentMethod - Coming soon!',
+    // Navigate to confirmation screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BookingConfirmationScreen(
+          spot: widget.spot,
+          date: widget.date,
+          startTime: widget.startTime,
+          endTime: widget.endTime,
+          totalPrice: _finalPrice,
         ),
-        backgroundColor: AppTheme.successColor,
-        duration: const Duration(seconds: 2),
       ),
     );
   }
