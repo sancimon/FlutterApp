@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkshare/utils/app_theme.dart';
+import 'package:parkshare/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -62,9 +63,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _navigateToSignUp() {
-    // TODO: Navigate to Sign Up screen
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Sign Up - Coming soon')),
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignUpScreen(),
+      ),
     );
   }
 
